@@ -1,0 +1,30 @@
+{
+  "name": "gsm2blogger-autoposter",
+  "version": "1.0.0",
+  "description": "Hybrid GSMArena/Engadget -> OpenAI -> Blogger autoposter using Node.js.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "once": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "openai",
+    "blogger",
+    "rss",
+    "autopost",
+    "gsma"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "better-sqlite3": "^9.5.0",
+    "dotenv": "^16.4.5",
+    "googleapis": "^129.0.0",
+    "node-cron": "^3.0.3",
+    "openai": "^4.33.0",
+    "rss-parser": "^3.13.0"
+  }
+}
