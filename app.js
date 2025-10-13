@@ -24,7 +24,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 const BLOG_ID = process.env.BLOG_ID;
 
-const GSMARENA_RSS = process.env.GSMARENA_RSS;
+const GSMARENA_RSS = process.env.GSMARENA_RSS; || 'https://www.thepointsguy.com/feed/';
 // CRON INTERVAL SET TO A SAFE 3-HOUR INTERVAL FOR TRIAL (8 RUNS/DAY)
 const POST_INTERVAL_CRON = process.env.POST_INTERVAL_CRON || '0 */3 * * *';
 // MAX ITEMS SET TO 1 TO AVOID BURSTING THE TRIAL LIMIT
