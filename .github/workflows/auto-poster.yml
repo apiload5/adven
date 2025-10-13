@@ -27,11 +27,11 @@ jobs:
         run: npm start
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           BLOG_ID: ${{ secrets.BLOG_ID }}
-          RSS_FEEDS_TO_PROCESS: ${{ secrets.RSS_FEEDS_TO_PROCESS }}
+          GSMARENA_RSS: ${{ secrets.GSMARENA_RSS }}
+          USER_AGENT: ${{ secrets.USER_AGENT }}
           POST_INTERVAL_CRON: ${{ secrets.POST_INTERVAL_CRON }}
           MODE: ${{ secrets.MODE || 'once' }}          
