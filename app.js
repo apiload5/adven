@@ -42,8 +42,6 @@ if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN || !BLOG_ID) {
   console.error('ERROR: Blogger OAuth config missing');
   process.exit(1);
 }
-
-// Naya Parser configuration: Strictness off (false) karne se woh ghaltiyon ko ignore kar dega.
 const parser = new Parser({
     customFields: {
         item: [
@@ -51,9 +49,11 @@ const parser = new Parser({
             ['media:thumbnail', 'mediaThumbnail', { keepArray: true }]
         ]
     },
-    // Yeh sabse zaroori setting hai: Agar XML parsing mein ghalti ho to fail na ho.
     xml2jsOptions: {
-        strict: false 
+        strict: false, // Ab bhi yeh zaroori hai
+        normalizeTags: true, // Tags ko normalize karega
+        normalize: true,     // Values ko bhi normalize karega
+        trim: true           // Extra spaces ko hata dega
     }
 });
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
