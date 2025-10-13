@@ -1,0 +1,37 @@
+name: Auto Blogger Poster
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"   # har 5 ghante chalega
+  workflow_dispatch:        # manually run karne ka option bhi
+  push:
+    branches: [ "main" ]    # push hone par bhi chala
+
+jobs:
+  run-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run app
+        run: npm start
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          BLOG_ID: ${{ secrets.BLOG_ID }}
+          RSS_FEEDS_TO_PROCESS: ${{ secrets.RSS_FEEDS_TO_PROCESS }}
+          POST_INTERVAL_CRON: ${{ secrets.POST_INTERVAL_CRON }}
+          MODE: ${{ secrets.MODE || 'once' }}          
